@@ -1,0 +1,55 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<!DOCTYPE html>
+<html>
+<style>
+    #myContainer {
+        width: 400px;
+        height: 400px;
+        position: relative;
+        background: yellow;
+    }
+    #myAnimation {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        background-color: lightblue;
+    }
+</style>
+<body>
+<p>
+    <button onclick="myMove()">Click Here!</button>
+</p>
+<div id="myContainer">
+    <div id="myAnimation"></div>
+</div>
+
+    <script>
+        var id = null;
+        function myMove() {
+            var elem = document.getElementById("myAnimation");
+            var pos = 0;
+            clearInterval(id);
+            id = setInterval(frame, 10);
+            function frame() {
+                if (pos == 350) {
+                    clearInterval(id);
+                } else {
+                    pos++;
+                    elem.style.top = pos + 'px';
+                    elem.style.left = pos + 'px';
+                }
+            }
+        }
+  </script>
+    <h1> My assignment </h1>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/xV9_yal8KBI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div id="myContainer">
+        <div id="myAnimation"></div>
+    </div>
+
+</body>
+</html>
